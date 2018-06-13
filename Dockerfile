@@ -95,5 +95,12 @@ RUN pacman -S --noconfirm boost \
  lksctp-tools \
  check
  
+# Install dependencies for SrsGUI
+RUN pacman -S --noconfirm qwt
+
+
+# Most important! Install some Editor of choice
+RUN pacman -S --noconfirm geany vim
+ 
 # Enables the graphical interface of gnuradio-companion inside the container
 ENV DISPLAY unix:0
