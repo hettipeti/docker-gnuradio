@@ -95,12 +95,25 @@ RUN pacman -S --noconfirm boost \
  lksctp-tools \
  check
  
+# Install Driver for USRP
+RUN pacman -S --noconfirm libuhd
+ 
 # Install dependencies for SrsGUI
 RUN pacman -S --noconfirm qwt
 
+# Install Python Dependencies for Smartcardreader
+RUN pacman -S --noconfirm ccid \
+ pcsc-tools \
+ usbutils
 
 # Most important! Install some Editor of choice
 RUN pacman -S --noconfirm geany vim
+
+# Install Python Dependencies for pysim
+RUN pacman -S --noconfirm swig \
+ python2-pip
+ 
+RUN pip2 install pyscard
  
 # Enables the graphical interface of gnuradio-companion inside the container
 ENV DISPLAY unix:0
